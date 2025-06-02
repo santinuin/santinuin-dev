@@ -1,0 +1,115 @@
+:root {
+  /* Paleta cyberpunk minimalista */
+  --neon-blue: #00fff9;
+  --neon-pink: #ff00ff;
+  --neon-purple: #bc13fe;
+  --dark-blue: #0d1b2a;
+  --dark-purple: #240046;
+  --black: #050505;
+  --terminal-green: #00ff41;
+  
+  /* Gradientes simplificados */
+  --night-city-gradient: linear-gradient(to bottom, var(--black), var(--dark-purple));
+  --cyberpunk-gradient: linear-gradient(90deg, var(--dark-purple), var(--dark-blue));
+}
+
+html {
+  background: var(--night-city-gradient);
+  color: #ffffff;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Enlaces */
+a {
+  color: var(--neon-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--neon-pink);
+}
+
+/* Elementos de texto */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 0.5em;
+  color: var(--neon-blue);
+}
+
+h1 {
+  font-size: 2.2rem;
+  color: var(--neon-pink);
+}
+
+/* Botones */
+button, .button {
+  background-color: transparent;
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+  padding: 0.6em 1.2em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+button:hover, .button:hover {
+  background-color: var(--neon-blue);
+  color: var(--black);
+}
+
+/* Contenedores con estilo cyberpunk */
+.cyber-container {
+  background: var(--dark-blue);
+  border-left: 2px solid var(--neon-blue);
+  padding: 1.2rem;
+  margin: 1.2rem 0;
+}
+
+/* Terminal look simplificado */
+.terminal {
+  background-color: var(--black);
+  border: 1px solid var(--terminal-green);
+  color: var(--terminal-green);
+  font-family: 'Courier New', monospace;
+  padding: 1.2rem;
+}
+
+/* Scrollbar minimalista */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-blue);
+}
+
+/* Utilidades de color */
+.text-blue { color: var(--neon-blue); }
+.text-pink { color: var(--neon-pink); }
+.text-purple { color: var(--neon-purple); }
+.bg-dark { background-color: var(--dark-blue); }
+.bg-black { background-color: var(--black); }
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
