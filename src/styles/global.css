@@ -1,5 +1,5 @@
 :root {
-  /* Paleta cyberpunk minimalista */
+  /* Paleta cyberpunk minimalista - tema oscuro (default) */
   --neon-blue: #00fff9;
   --neon-pink: #ff00ff;
   --neon-purple: #bc13fe;
@@ -7,16 +7,52 @@
   --dark-purple: #240046;
   --black: #050505;
   --terminal-green: #00ff41;
-  
+
+  /* Colores base - tema oscuro */
+  --color-background: var(--black);
+  --color-background-secondary: var(--dark-purple);
+  --color-text: #ffffff;
+  --color-heading: var(--terminal-blue);
+  --color-accent: var(--neon-pink);
+  --color-link: var(--neon-blue);
+  --color-link-hover: var(--neon-pink);
+  --color-border: var(--neon-blue);
+
   /* Gradientes simplificados */
   --night-city-gradient: linear-gradient(to bottom, var(--black), var(--dark-purple));
   --cyberpunk-gradient: linear-gradient(90deg, var(--dark-purple), var(--dark-blue));
 }
 
+/* Tema claro */
+html[data-theme="light"] {
+  /* Paleta cyberpunk para tema claro */
+  --color-background: #f0f0f5;
+  --color-background-secondary: #e0e0f0;
+  --color-text: #121225;
+  --color-heading: #5933b1;
+  --color-accent: #cc00cc;
+  --color-link: #0099cc;
+  --color-link-hover: #cc00cc;
+  --color-border: #0099cc;
+
+  /* Versiones más suaves de los colores neon para tema claro */
+  --neon-blue: #0099cc;
+  --neon-pink: #cc00cc;
+  --neon-purple: #5933b1;
+  --dark-blue: #e0e0f0;
+  --dark-purple: #d0d0e8;
+  --black: #f0f0f5;
+  --terminal-green: #00a86b;
+
+  /* Gradientes para tema claro */
+  --night-city-gradient: linear-gradient(to bottom, #f0f0f5, #e0c0f3);
+  --cyberpunk-gradient: linear-gradient(90deg, #d0d0e8, #e0e0f0);
+}
+
 html {
   background: var(--night-city-gradient);
-  color: #ffffff;
-  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  color: var(--color-text);
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
   line-height: 1.6;
   scroll-behavior: smooth;
 }
@@ -30,33 +66,39 @@ body {
 
 /* Enlaces */
 a {
-  color: var(--neon-blue);
+  color: var(--color-link);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--neon-pink);
+  color: var(--color-link-hover);
 }
 
 /* Elementos de texto */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   letter-spacing: 1px;
-  margin-bottom: 0.5em;
-  color: var(--neon-blue);
+  margin: 0;
+  color: var(--color-heading);
+  line-height: 1.2;
 }
 
 h1 {
   font-size: 2.2rem;
-  color: var(--neon-pink);
+  color: var(--color-accent);
 }
 
 /* Botones */
-button, .button {
+button,
+.button {
   background-color: transparent;
-  border: 1px solid var(--neon-blue);
-  color: var(--neon-blue);
+  border: 1px solid var(--color-border);
+  color: var(--color-link);
   padding: 0.6em 1.2em;
   font-weight: 500;
   letter-spacing: 1px;
@@ -64,15 +106,16 @@ button, .button {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-button:hover, .button:hover {
-  background-color: var(--neon-blue);
-  color: var(--black);
+button:hover,
+.button:hover {
+  background-color: var(--color-link);
+  color: var(--color-background);
 }
 
 /* Contenedores con estilo cyberpunk */
 .cyber-container {
-  background: var(--dark-blue);
-  border-left: 2px solid var(--neon-blue);
+  background: var(--color-background-secondary);
+  border-left: 2px solid var(--color-border);
   padding: 1.2rem;
   margin: 1.2rem 0;
 }
@@ -101,11 +144,25 @@ button:hover, .button:hover {
 }
 
 /* Utilidades de color */
-.text-blue { color: var(--neon-blue); }
-.text-pink { color: var(--neon-pink); }
-.text-purple { color: var(--neon-purple); }
-.bg-dark { background-color: var(--dark-blue); }
-.bg-black { background-color: var(--black); }
+.text-blue {
+  color: var(--neon-blue);
+}
+
+.text-pink {
+  color: var(--neon-pink);
+}
+
+.text-purple {
+  color: var(--neon-purple);
+}
+
+.bg-dark {
+  background-color: var(--dark-blue);
+}
+
+.bg-black {
+  background-color: var(--black);
+}
 
 /* Estilos responsivos */
 @media (max-width: 768px) {

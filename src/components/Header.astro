@@ -1,0 +1,27 @@
+---
+import ThemeIcon from "./ThemeIcon.astro";
+
+---
+<header>
+    <nav>
+        <a href="/">santinuin.dev</a>
+        <ThemeIcon/>
+    </nav>
+</header>
+
+<style>
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        margin: auto;
+        max-width: 1200px;
+    }
+    
+    a {
+        padding: 1rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+</style>

@@ -1,10 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <h1>Welcome to santinuin.dev</h1>
-  <p>This is the homepage of my personal website.</p>
-  <p>Feel free to explore and learn more about me!</p>
-  <button onclick="alert('Hello, world!')">Click Me!</button>
+  <section>
+    <h1>Santiago Nuñez Ingas</h1>
+    <span>Web developer</span>
+    <p>Feel free to explore and learn more about me!</p>
+    <button onclick="alert('Hello, world!')">Click Me!</button>
+  </section>
 </Layout>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+  }
+
+  span {
+    color: var(--color-heading);
+  }
+</style>
