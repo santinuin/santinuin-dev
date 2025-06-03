@@ -1,17 +1,18 @@
 :root {
-  /* Paleta cyberpunk minimalista - tema oscuro (default) */
+  /* Paleta cyberpunk - tema oscuro (default) */
   --neon-blue: #00fff9;
   --neon-pink: #ff00ff;
   --neon-purple: #bc13fe;
+  --terminal-green: #00ff41;
   --dark-blue: #0d1b2a;
   --dark-purple: #240046;
   --black: #050505;
-  --terminal-green: #00ff41;
+  --white: #ffffff;
 
   /* Colores base - tema oscuro */
   --color-background: var(--black);
   --color-background-secondary: var(--dark-purple);
-  --color-text: #ffffff;
+  --color-text: var(--white);
   --color-heading: var(--terminal-green);
   --color-accent: var(--neon-pink);
   --color-link: var(--neon-blue);
@@ -25,28 +26,27 @@
 
 /* Tema claro */
 html[data-theme="light"] {
-  /* Paleta cyberpunk para tema claro */
-  --color-background: #f0f0f5;
-  --color-background-secondary: #e0e0f0;
-  --color-text: #121225;
-  --color-heading: #5933b1;
-  --color-accent: #cc00cc;
-  --color-link: #0099cc;
-  --color-link-hover: #cc00cc;
-  --color-border: #0099cc;
-
   /* Versiones más suaves de los colores neon para tema claro */
   --neon-blue: #0099cc;
   --neon-pink: #cc00cc;
   --neon-purple: #5933b1;
-  --dark-blue: #e0e0f0;
-  --dark-purple: #d0d0e8;
-  --black: #f0f0f5;
+  --dark-blue: #9a9af8;
+  --dark-purple: #d191ee;
   --terminal-green: #00a86b;
 
+  /* Paleta cyberpunk para tema claro */
+  --color-background: var(--black);
+  --color-background-secondary: var(--dark-purple);
+  --color-text: var(--black);
+  --color-heading: var(--terminal-green);
+  --color-accent: var(--neon-pink);
+  --color-link: var(--neon-blue);
+  --color-link-hover: var(--neon-pink);
+  --color-border: var(--neon-blue);
   /* Gradientes para tema claro */
-  --night-city-gradient: linear-gradient(to bottom, #f0f0f5, #e0c0f3);
-  --cyberpunk-gradient: linear-gradient(90deg, #d0d0e8, #e0e0f0);
+  --night-city-gradient: linear-gradient(to bottom, var(--white), var(--dark-purple));
+  --cyberpunk-gradient: linear-gradient(90deg, var(--dark-purple), var(--dark-blue));
+
 }
 
 html {
@@ -125,7 +125,7 @@ button:hover,
   background-color: var(--black);
   border: 1px solid var(--terminal-green);
   color: var(--terminal-green);
-  font-family: 'Courier New', monospace;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
   padding: 1.2rem;
 }
 
