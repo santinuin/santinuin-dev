@@ -5,9 +5,13 @@ import Layout from "../layouts/Layout.astro";
 <Layout>
   <section>
     <h1>Santiago Nuñez Ingas</h1>
-    <span>Web developer - Psychologist - Musician</span>
+    <p>
+      <span class="text-green">Web Developer</span> -
+      <span class="text-purple">Psychologist</span> -
+      <span class="text-pink">Melomaniac</span>
+    </p>
     <p>Feel free to explore and learn more about me!</p>
-    <button onclick="alert('Hello, world!')">Click Me!</button>
+    <button onclick="alert('Hello, world!')">Hit Me!</button>
   </section>
 </Layout>
 
@@ -15,14 +19,34 @@ import Layout from "../layouts/Layout.astro";
   section {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     padding: 2rem;
     max-width: 800px;
     margin: auto;
+    margin-top: 12rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
   }
 
   span {
-    color: var(--color-heading);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
   }
 
+  .text-pink {
+    color: var(--pink);
+  }
+
+  .text-purple {
+    color: var(--purple);
+  }
+
+  .text-green {
+    color: var(--green);
+  }
 </style>
