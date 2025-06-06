@@ -23,7 +23,25 @@ import "../styles/global.css";
 	</head>
 	<Header />
 	<body>
-		<slot />
+		<main>
+			<slot />
+		</main>
 	</body>
 	<Footer />
 </html>
+
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+    height: 50vh;
+  }
+</style>
+
