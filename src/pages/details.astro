@@ -4,70 +4,73 @@ import Button from "../components/Button.astro";
 import DetailContainer from "../components/DetailContainer.astro";
 import { getCollection } from "astro:content";
 
-const sections = await getCollection('sections');
+const sections = await getCollection("sections");
 
 // Obtiene la sección actual del parámetro URL o usa 'about' por defecto
-const sectionFromSearchParam = Astro.url.searchParams.get('section');
-const currentSection = sections.find(sec => sec.slug === sectionFromSearchParam) || sections.find(sec => sec.slug === 'about');
+const sectionFromSearchParam = Astro.url.searchParams.get("section");
+const currentSection =
+  sections.find((sec) => sec.slug === sectionFromSearchParam) ||
+  sections.find((sec) => sec.slug === "about");
 ---
 
 <Layout>
-    <main>
-        <h1>Santiago Nuñez Ingas</h1>
-    </main>
-    <div class="button-container">
-        <Button text="ABOUT ME" section="about" />
-        <Button text="EXPERIENCE" section="experience" />
-        <Button text="EDUCATION" section="education" />
-        <Button text="SKILLS" section="skills" />
-        <Button text="PORTFOLIO" section="portfolio" />
-        <Button text="CONNECT" section="connect" />
-    </div>
-    <div class="content-container">
-        <DetailContainer
-            title={currentSection!.data.title}
-        >
-            <p>{currentSection!.body}</p>
-        </DetailContainer>
-    </div>
+  <main>
+    <h1>Santiago Nuñez Ingas</h1>
+  </main>
+  <div class="button-container">
+    <Button text="ABOUT ME" section="about" />
+    <Button text="EXPERIENCE" section="experience" />
+    <Button text="EDUCATION" section="education" />
+    <Button text="SKILLS" section="skills" />
+    <Button text="PORTFOLIO" section="portfolio" />
+    <Button text="CONNECT" section="connect" />
+  </div>
+  <div class="content-container">
+    <DetailContainer title={currentSection!.data.title}>
+      <p>{currentSection!.body}</p>
+    </DetailContainer>
+  </div>
 </Layout>
 
 <script define:vars={{ sections }}>
   // Este script se ejecutará en el cliente
-  window.addEventListener('sectionChange', (event) => {
+  window.addEventListener("sectionChange", (event) => {
     const section = event.detail;
-    const content = sections.find(sec => sec.slug === section) || sections.find(sec => sec.slug === 'about');
+    const content =
+      sections.find((sec) => sec.slug === section) ||
+      sections.find((sec) => sec.slug === "about");
 
     // Actualiza el título y la descripción
-    document.querySelector('#detail-container h2').textContent = content.data.title;
-    document.querySelector('#detail-container p').textContent = content.body;
+    document.querySelector("#detail-container h2").textContent =
+      content.data.title;
+    document.querySelector("#detail-container p").textContent = content.body;
   });
 </script>
 
 <style>
-    main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        max-width: 800px;
-        margin: auto;
-    }
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+  }
 
-    .button-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 2rem;
-        flex-wrap: wrap;
-        gap: 1rem;
-        padding: 0 1rem;
-    }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
 
-    .content-container {
-        max-width: 800px;
-        margin: auto;
-        padding: 2rem;
-        text-align: center;
-    }
+  .content-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+  }
 </style>
