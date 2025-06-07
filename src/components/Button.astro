@@ -5,19 +5,12 @@ export interface Props {
     section?: string;
 }
 
-const { text, href, section } = Astro.props;
+const { text, href } = Astro.props;
 ---
 
-{
-    href ? (
-        <a href={href}>{text}</a>
-    ) : (
-        <button data-section={section}>{text}</button>
-    )
-}
+<a href={href}>{text}</a>
 
 <style>
-    button,
     a {
         background-color: transparent;
         border: 1px solid var(--button-color-border);
@@ -32,28 +25,8 @@ const { text, href, section } = Astro.props;
             color 0.2s ease;
     }
 
-    button:hover,
-    .button:hover {
+    a:hover{
         background-color: var(--color-link);
         color: var(--color-background);
     }
 </style>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const buttons = document.querySelectorAll("button[data-section]");
-
-        buttons.forEach((button) => {
-            button.addEventListener("click", () => {
-                const section = button.getAttribute("data-section");
-                if (section) {
-                    window.history.pushState(
-                        {},
-                        "",
-                        `/details?section=${section}`,
-                    );
-                }
-            });
-        });
-    });
-</script>

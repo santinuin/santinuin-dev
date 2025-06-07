@@ -1,0 +1,71 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
+import DetailContainer from "../../components/DetailContainer.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const sections = await getCollection("sections");
+  return sections.map((section) => ({
+    params: { id: section.slug },
+    props: { section, sections },
+  }));
+}
+
+const { section, sections } = Astro.props;
+const { data } = section;
+const { title } = data;
+
+const { Content } = await render(section);
+---
+
+<Layout>
+  <main>
+    <h1>Santiago Nuñez Ingas</h1>
+
+    <div class="buttons-container">
+      {
+        sections.map((section) => {
+          const { slug, data } = section;
+          const { title } = data;
+
+          return <Button text={title.toUpperCase()} href={slug} />;
+        })
+      }
+    </div>
+
+    <div class="content-container">
+      <DetailContainer title={title}>
+        <Content />
+      </DetailContainer>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .content-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+  }
+</style>
