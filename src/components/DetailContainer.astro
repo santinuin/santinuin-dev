@@ -1,14 +1,16 @@
 ---
 export interface Props {
-  title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <section class="detail-container cyberpunk-border" id="detail-container">
-  <h2 class="cyberpunk-header">{title}</h2>
-  <slot />
+    <h2 class="cyberpunk-header">{title}</h2>
+    <div class="content-wrapper">
+        <slot class="content-wrapper" />
+    </div>
 </section>
 
 <style>
@@ -32,9 +34,8 @@ const { title } = Astro.props;
             0 0 30px var(--content-color-border);
     }
 
-    p {
-        color: var(--color-text);
-        font-size: 1.1rem;
-        line-height: 1.6;
+    .content-wrapper :global(p) {
+        color: var(--blue);
+        text-align: justify;
     }
 </style>

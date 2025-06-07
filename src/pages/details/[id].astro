@@ -20,7 +20,7 @@ const { Content } = await render(section);
 ---
 
 <Layout title=`${title} | santinuin.dev`>
-  <main>
+  <div class="details-page-wrapper">
     <h1 transition:name="title-fade">Santiago Nuñez Ingas</h1>
     <div class="buttons-container">
       {
@@ -38,11 +38,11 @@ const { Content } = await render(section);
         <Content />
       </DetailContainer>
     </div>
-  </main>
+  </div>
 </Layout>
 
 <style>
-  main {
+  .details-page-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
