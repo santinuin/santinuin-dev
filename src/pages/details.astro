@@ -39,8 +39,6 @@ const { title } = data;
 
 <script define:vars={{ sections, sectionFromSearchParam }}>
   window.addEventListener("sectionChange", (event) => {
-    console.log("Section changed:", event);
-    
     const section = event.detail;
     const content =
       sections.find((sec) => sec.slug === section) ||
