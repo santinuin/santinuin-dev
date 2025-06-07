@@ -1,0 +1,98 @@
+---
+import Button from "../components/Button.astro";
+import DetailContainer from "../components/DetailContainer.astro";
+import Layout from "../layouts/Layout.astro";
+
+// Define contenido para cada sección
+const sectionContent = {
+  about: {
+    title: "About Me",
+    description: "Greetings! I'm Santiago Nuñez Ingas, a dynamic professional merging the analytical world of Web Development with the insightful realm of Psychology and the creative expression of Music. This unique trifecta fuels my approach to crafting digital experiences that are not only functional and aesthetically pleasing but also deeply user-centric and engaging."
+  },
+  experience: {
+    title: "Experience",
+    description: "I have X years of experience in web development, working with technologies like React, Node.js, and more. I've worked on projects ranging from small business websites to large enterprise applications."
+  },
+  education: {
+    title: "Education",
+    description: "I hold degrees in Computer Science and Psychology, providing me with a unique perspective on both the technical and human aspects of software development."
+  },
+  skills: {
+    title: "Skills",
+    description: "My technical skills include JavaScript, TypeScript, React, Node.js, HTML, CSS, and more. I also have strong soft skills in communication, teamwork, and problem-solving."
+  },
+  portfolio: {
+    title: "Portfolio",
+    description: "Here are some of my recent projects that showcase my abilities in web development and UX design."
+  },
+  connect: {
+    title: "Connect",
+    description: "Feel free to reach out to me through LinkedIn, GitHub, or email. I'm always open to discussing new opportunities and collaborations."
+  }
+};
+
+// Obtiene la sección actual del parámetro URL o usa 'about' por defecto
+const section = Astro.url.searchParams.get('section') as keyof typeof sectionContent || 'about';
+const currentContent = sectionContent[section] || sectionContent.about;
+---
+
+<Layout>
+    <main>
+        <h1>Santiago Nuñez Ingas</h1>
+    </main>
+    <div class="button-container">
+        <Button text="ABOUT ME" section="about" />
+        <Button text="EXPERIENCE" section="experience" />
+        <Button text="EDUCATION" section="education" />
+        <Button text="SKILLS" section="skills" />
+        <Button text="PORTFOLIO" section="portfolio" />
+        <Button text="CONNECT" section="connect" />
+    </div>
+    <div class="content-container">
+        <DetailContainer
+            title={currentContent.title}
+        >
+            <p>{currentContent.description}</p>
+        </DetailContainer>
+    </div>
+</Layout>
+
+<script define:vars={{ sectionContent }}>
+  // Este script se ejecutará en el cliente
+  window.addEventListener('sectionChange', (event) => {
+    const section = event.detail;
+    const content = sectionContent[section] || sectionContent.about;
+    
+    // Actualiza el título y la descripción
+    document.querySelector('#detail-container h2').textContent = content.title;
+    document.querySelector('#detail-container p').textContent = content.description;
+  });
+</script>
+
+<style>
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .content-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 2rem;
+        text-align: center;
+    }
+</style>

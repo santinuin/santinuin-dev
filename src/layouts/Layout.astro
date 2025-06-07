@@ -16,32 +16,10 @@ import "../styles/global.css";
 			href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap"
 			rel="stylesheet"
 		/>
-		<link
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
-			rel="stylesheet"
-		/>
 	</head>
 	<Header />
 	<body>
-		<main>
-			<slot />
-		</main>
+		<slot />
 	</body>
 	<Footer />
 </html>
-
-
-<style>
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    max-width: 800px;
-    margin: auto;
-    height: 50vh;
-  }
-</style>
-

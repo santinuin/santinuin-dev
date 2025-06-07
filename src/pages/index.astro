@@ -1,8 +1,10 @@
 ---
+import Button from "../components/Button.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
+  <main>
     <h1>Santiago Nuñez Ingas</h1>
     <p>
       <span class="text-green">Web Developer</span> -
@@ -10,10 +12,23 @@ import Layout from "../layouts/Layout.astro";
       <span class="text-pink">Melomaniac</span>
     </p>
     <p>Feel free to explore and learn more about me!</p>
-    <button onclick="alert('Hello, world!')">Hit Me!</button>
+    <Button text="Hit Me!" href="/details" />
+  </main>
 </Layout>
 
 <style>
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+    height: 50vh;
+  }
+
   h1 {
     font-size: 3rem;
     margin-bottom: 1rem;

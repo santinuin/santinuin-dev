@@ -1,0 +1,126 @@
+---
+import About from "./sections/About.astro";
+import Experience from "./sections/Experience.astro";
+import Education from "./sections/Education.astro";
+import Skills from "./sections/Skills.astro";
+import Portfolio from "./sections/Portfolio.astro";
+import Connect from "./sections/Connect.astro";
+
+// Mapeo de componentes
+const sectionComponents = {
+    about: About,
+    experience: Experience,
+    education: Education,
+    skills: Skills,
+    portfolio: Portfolio,
+    connect: Connect,
+};
+
+// Títulos por sección
+const sectionTitles = {
+    about: "About Me",
+    experience: "Experience",
+    education: "Education",
+    skills: "Skills",
+    portfolio: "Portfolio",
+    connect: "Connect",
+};
+
+interface Props {
+    initialSection?: keyof typeof sectionTitles;
+}
+const { initialSection = "about" } = Astro.props;
+---
+
+<section class="content-section cyberpunk-border" id="content-section">
+    <h2 class="cyberpunk-header" id="section-title">
+        {sectionTitles[initialSection]}
+    </h2>
+    <div id="section-content">
+        {
+            (initialSection === "about" && <About />) ||
+                (initialSection === "experience" && <Experience />) ||
+                (initialSection === "education" && <Education />) ||
+                (initialSection === "skills" && <Skills />) ||
+                (initialSection === "portfolio" && <Portfolio />) ||
+                (initialSection === "connect" && <Connect />)
+        }
+    </div>
+</section>
+
+<script
+    define:vars={{
+        sectionComponents: Object.keys(sectionComponents),
+        sectionTitles,
+    }}
+>
+    // Este script se ejecutará en el cliente
+    document.addEventListener("DOMContentLoaded", () => {
+        window.addEventListener("sectionChange", async (event) => {
+            const section = event.detail;
+            if (sectionComponents.includes(section)) {
+                try {
+                    // Actualiza el título
+                    document.getElementById("section-title").textContent =
+                        sectionTitles[section];
+
+                    // Carga el contenido de la sección
+                    const response = await fetch(
+                        `/api/section-content?section=${section}`,
+                    );
+                    if (response.ok) {
+                        const html = await response.text();
+                        document.getElementById("section-content").innerHTML =
+                            html;
+                    }
+                } catch (error) {
+                    console.error("Error al cargar contenido:", error);
+                }
+            }
+        });
+    });
+</script>
+
+<style>
+    .content-section {
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 8px;
+        background-color: var(--color-background);
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .cyberpunk-header {
+        color: var(--color-heading);
+    }
+
+    .cyberpunk-border {
+        border: 2px solid var(--content-color-border);
+        box-shadow:
+            0 0 10px var(--content-color-border),
+            0 0 20px var(--content-color-border),
+            0 0 30px var(--content-color-border);
+    }
+
+    p {
+        color: var(--color-text);
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    /* Añadimos también los estilos específicos de la sección dinámica */
+    #section-content {
+        margin-top: 1.5rem;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

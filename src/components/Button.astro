@@ -1,0 +1,67 @@
+---
+export interface Props {
+    text: string;
+    href?: string; // Para navegación directa
+    section?: string; // Para cambio dinámico de contenido
+}
+
+const { text, href, section } = Astro.props;
+---
+
+{
+    href ? (
+        <a href={href}>{text}</a>
+    ) : (
+        <button data-section={section}>{text}</button>
+    )
+}
+
+<style>
+    button,
+    a {
+        background-color: transparent;
+        border: 1px solid var(--button-color-border);
+        color: var(--color-link);
+        cursor: pointer;
+        font-family: inherit;
+        font-weight: 500;
+        letter-spacing: 1px;
+        padding: 0.6em 1.2em;
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease;
+    }
+
+    button:hover,
+    .button:hover {
+        background-color: var(--color-link);
+        color: var(--color-background);
+    }
+</style>
+
+<script>
+    // Este script se ejecutará en el cliente
+    document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll(
+            "button[data-section]",
+        );
+
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const section = button.getAttribute("data-section");
+                if (section) {
+                    // Cambia la URL sin recargar la página
+                    window.history.pushState(
+                        {},
+                        "",
+                        `/details?section=${section}`,
+                    );
+                    // Dispara evento para actualizar el contenido
+                    window.dispatchEvent(
+                        new CustomEvent("sectionChange", { detail: section }),
+                    );
+                }
+            });
+        });
+    });
+</script>
