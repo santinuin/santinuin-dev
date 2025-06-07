@@ -1,5 +1,5 @@
 /* =====================
-   1. VARIABLES & THEMES
+     VARIABLES & THEMES
    ===================== */
 
 :root {
@@ -31,7 +31,7 @@
   --content-color-border: var(--neon-pink);
 }
 
-/* Light Theme */
+/* Light Theme (unfinished)*/
 html[data-theme="light"] {
   /* Softer palette for light theme */
   --neon-blue: #0099cc;
@@ -48,7 +48,7 @@ html[data-theme="light"] {
 }
 
 /* =====================
-   2. BASE ELEMENTS
+      BASE ELEMENTS
    ===================== */
 
 html {
@@ -68,7 +68,7 @@ body {
 }
 
 /* =====================
-   3. TYPOGRAPHY
+        TYPOGRAPHY
    ===================== */
 
 h1,
@@ -102,7 +102,7 @@ p {
 }
 
 /* =====================
-   4. INTERACTIVE ELEMENTS
+    INTERACTIVE ELEMENTS
    ===================== */
 
 /* Links */
@@ -133,28 +133,7 @@ a:focus {
 }
 
 /* =====================
-   5. CUSTOM COMPONENTS
-   ===================== */
-
-/* Cyberpunk container */
-.cyber-container {
-  background: var(--color-background-secondary);
-  border-left: 2px solid var(--button-color-border);
-  margin: 1.2rem 0;
-  padding: 1.2rem;
-}
-
-/* Terminal look */
-.terminal {
-  background-color: var(--black);
-  border: 1px solid var(--green);
-  color: var(--green);
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
-  padding: 1.2rem;
-}
-
-/* =====================
-   7. MEDIA QUERIES
+       MEDIA QUERIES
    ===================== */
 
 @media (max-width: 768px) {

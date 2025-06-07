@@ -5,6 +5,7 @@
       "name": "santinuin-dev",
       "dependencies": {
         "astro": "^5.8.1",
+        "typescript": "^5.8.3",
       },
     },
   },
