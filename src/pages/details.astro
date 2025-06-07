@@ -6,41 +6,46 @@ import { getCollection } from "astro:content";
 
 const sections = await getCollection("sections");
 
-// Obtiene la sección actual del parámetro URL o usa 'about' por defecto
 const sectionFromSearchParam = Astro.url.searchParams.get("section");
 const currentSection =
   sections.find((sec) => sec.slug === sectionFromSearchParam) ||
   sections.find((sec) => sec.slug === "about");
+const { body, data } = currentSection!;
+const { title } = data;
 ---
 
 <Layout>
   <main>
     <h1>Santiago Nuñez Ingas</h1>
+
+    <div class="buttons-container">
+      {
+        sections.map((section) => {
+          const { slug, data } = section;
+          const { title } = data;
+
+          return <Button text={title.toUpperCase()} section={slug} />;
+        })
+      }
+    </div>
+
+    <div class="content-container">
+      <DetailContainer title={title}>
+        <p>{body}</p>
+      </DetailContainer>
+    </div>
   </main>
-  <div class="button-container">
-    <Button text="ABOUT ME" section="about" />
-    <Button text="EXPERIENCE" section="experience" />
-    <Button text="EDUCATION" section="education" />
-    <Button text="SKILLS" section="skills" />
-    <Button text="PORTFOLIO" section="portfolio" />
-    <Button text="CONNECT" section="connect" />
-  </div>
-  <div class="content-container">
-    <DetailContainer title={currentSection!.data.title}>
-      <p>{currentSection!.body}</p>
-    </DetailContainer>
-  </div>
 </Layout>
 
-<script define:vars={{ sections }}>
-  // Este script se ejecutará en el cliente
+<script define:vars={{ sections, sectionFromSearchParam }}>
   window.addEventListener("sectionChange", (event) => {
+    console.log("Section changed:", event);
+    
     const section = event.detail;
     const content =
       sections.find((sec) => sec.slug === section) ||
       sections.find((sec) => sec.slug === "about");
 
-    // Actualiza el título y la descripción
     document.querySelector("#detail-container h2").textContent =
       content.data.title;
     document.querySelector("#detail-container p").textContent = content.body;
@@ -58,7 +63,7 @@ const currentSection =
     margin: auto;
   }
 
-  .button-container {
+  .buttons-container {
     display: flex;
     justify-content: center;
     margin-top: 2rem;

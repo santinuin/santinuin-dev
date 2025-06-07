@@ -40,23 +40,18 @@ const { text, href, section } = Astro.props;
 </style>
 
 <script>
-    // Este script se ejecutará en el cliente
     document.addEventListener("DOMContentLoaded", () => {
-        const buttons = document.querySelectorAll(
-            "button[data-section]",
-        );
+        const buttons = document.querySelectorAll("button[data-section]");
 
         buttons.forEach((button) => {
             button.addEventListener("click", () => {
                 const section = button.getAttribute("data-section");
                 if (section) {
-                    // Cambia la URL sin recargar la página
                     window.history.pushState(
                         {},
                         "",
                         `/details?section=${section}`,
                     );
-                    // Dispara evento para actualizar el contenido
                     window.dispatchEvent(
                         new CustomEvent("sectionChange", { detail: section }),
                     );
