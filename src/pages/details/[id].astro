@@ -28,7 +28,7 @@ const { Content } = await render(section);
           const { slug, data } = section;
           const { title } = data;
 
-          return <Button text={title.toUpperCase()} href={slug} />;
+          return <Button text={title.toUpperCase()} href={`/details/${slug}`} />;
         })
       }
     </div>
