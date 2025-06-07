@@ -1,8 +1,8 @@
 ---
 export interface Props {
     text: string;
-    href?: string; // Para navegación directa
-    section?: string; // Para cambio dinámico de contenido
+    href?: string;
+    section?: string;
 }
 
 const { text, href, section } = Astro.props;
@@ -51,9 +51,6 @@ const { text, href, section } = Astro.props;
                         {},
                         "",
                         `/details?section=${section}`,
-                    );
-                    window.dispatchEvent(
-                        new CustomEvent("sectionChange", { detail: section }),
                     );
                 }
             });

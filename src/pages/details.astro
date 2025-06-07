@@ -5,13 +5,6 @@ import DetailContainer from "../components/DetailContainer.astro";
 import { getCollection } from "astro:content";
 
 const sections = await getCollection("sections");
-
-const sectionFromSearchParam = Astro.url.searchParams.get("section");
-const currentSection =
-  sections.find((sec) => sec.slug === sectionFromSearchParam) ||
-  sections.find((sec) => sec.slug === "about");
-const { body, data } = currentSection!;
-const { title } = data;
 ---
 
 <Layout>
@@ -30,24 +23,68 @@ const { title } = data;
     </div>
 
     <div class="content-container">
-      <DetailContainer title={title}>
-        <p>{body}</p>
+      <DetailContainer title="Welcome to My Details Page!">
+        <p>
+          Here you can find more about my journey, skills, and interests.
+          Click on the buttons above to explore different sections.
+        </p>
       </DetailContainer>
     </div>
   </main>
 </Layout>
 
-<script define:vars={{ sections, sectionFromSearchParam }}>
-  window.addEventListener("sectionChange", (event) => {
-    const section = event.detail;
-    const content =
-      sections.find((sec) => sec.slug === section) ||
-      sections.find((sec) => sec.slug === "about");
+<script define:vars={{ sections }}>
+  function updateContent() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sectionSlug = urlParams.get("section");
+    
+    if (sectionSlug) {
+      const section = sections.find((s) => s.slug === sectionSlug);
+      
+      if (section) {
+        const sectionElement = document.getElementById("detail-container");
+        if (sectionElement) {
+          const titleElement = sectionElement.querySelector("h2");
+          if (titleElement) {
+            titleElement.textContent = section.data.title;
+          }
+          
+          const contentArea = sectionElement.querySelector("p");
+          if (contentArea) {
+            contentArea.textContent = section.body;
+          }
+          
+          // Actualiza el título del navegador
+          document.title = `${section.data.title} | santinuin.dev`;
+          
+          // Scroll suave hacia el contenido
+          sectionElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  }
 
-    document.querySelector("#detail-container h2").textContent =
-      content.data.title;
-    document.querySelector("#detail-container p").textContent = content.body;
+  // Ejecuta al cargar la página
+  document.addEventListener("DOMContentLoaded", updateContent);
+  
+  // Escucha los cambios de estado en el historial (cuando cambia la URL)
+  window.addEventListener("popstate", updateContent);
+  
+  // Observa cambios en la URL provocados por los botones
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === "attributes" && mutation.attributeName === "href") {
+        updateContent();
+      }
+    });
   });
+  
+  // Configuración adicional para detectar cambios de URL cuando se usa pushState
+  const originalPushState = history.pushState;
+  history.pushState = function() {
+    originalPushState.apply(this, arguments);
+    updateContent();
+  };
 </script>
 
 <style>

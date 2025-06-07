@@ -1,6 +1,6 @@
 ---
 language: en
-title: Education
+title: Experience
 description: A summary of my academic background and qualifications.
 ---
 
