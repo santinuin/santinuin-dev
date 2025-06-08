@@ -52,6 +52,7 @@ html[data-theme="light"] {
    ===================== */
 
 html {
+  background: var(--night-city-gradient);
   color: var(--color-text);
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   line-height: 1.6;
