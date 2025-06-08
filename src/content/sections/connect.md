@@ -1,5 +1,6 @@
 ---
 language: en
+order: 4
 title: Connect
 description: A list of social networks to contact me
 ---

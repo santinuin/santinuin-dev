@@ -1,5 +1,6 @@
 ---
 language: en
+order: 3
 title: Skills
 description: A summary of my technical skills and expertise.
 ---

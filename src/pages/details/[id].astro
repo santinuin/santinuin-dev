@@ -24,7 +24,10 @@ const { Content } = await render(section);
     <h1 transition:name="title-fade">Santiago Nuñez Ingas</h1>
     <div class="buttons-container">
       {
-        sections.map((section) => {
+        sections
+        .filter((s) => s.data.order !== undefined)
+        .sort((a, b) => a.data.order! - b.data.order!)
+        .map((section) => {
           const { slug, data } = section;
           const { title } = data;
 

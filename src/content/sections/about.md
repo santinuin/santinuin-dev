@@ -1,5 +1,6 @@
 ---
 language: en
+order: 0
 title: About Me
 description: A brief introduction to my professional journey and passions.
 ---
@@ -15,11 +16,11 @@ When I'm not coding, you might find me delving into psychological research, play
     .text-pink {
       color: var(--pink);
     }
-    
+
     .text-purple {
       color: var(--purple);
     }
-    
+
     .text-green {
       color: var(--green);
     }

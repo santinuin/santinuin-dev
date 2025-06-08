@@ -1,5 +1,6 @@
 ---
 language: en
+order: 2
 title: Education
 description: A summary of my academic background and qualifications.
 ---
