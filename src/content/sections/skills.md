@@ -98,7 +98,7 @@ description: A summary of my technical skills and expertise.
 
 .skill-list li {
     margin-bottom: 0.25rem;
-    color: var(--blue);
+    color: var(--neon-blue);
 }
 
 

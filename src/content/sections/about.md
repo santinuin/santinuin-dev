@@ -22,6 +22,6 @@ When I'm not coding, you might find me delving into psychological research, play
     }
 
     .text-green {
-      color: var(--green);
+      color: var(--neon-green);
     }
 </style>

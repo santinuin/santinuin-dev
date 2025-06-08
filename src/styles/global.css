@@ -4,12 +4,16 @@
 
 :root {
   /* Core palette */
-  --blue: #00fff9;
-  --pink: rgb(244 114 182);
-  --purple: rgb(192 132 252);
-  --green: rgb(0 255 65);
-  --yellow: rgb(250 204 21 );
+  --blue: #2d68c4;
+  --pink: #f472b6;
+  --purple: #c084fc;
+  --green: #3cae63;
+  --yellow: #efbf04;
   --neon-pink: #ff00ff;
+  --neon-green: #00ff41;
+  --neon-yellow: #ffde21;
+  --neon-blue: #00fff9;
+  --neon-purple: #b300ff;
   --dark-blue: #0d1b2a;
   --dark-purple: #240046;
   --black: #050505;
@@ -26,9 +30,9 @@
   --color-text: var(--gray);
   --color-heading: var(--neon-pink);
   --color-accent: var(--neon-pink);
-  --color-link: var(--blue);
+  --color-link: var(--neon-blue);
   --color-link-hover: #80fffc;
-  --button-color-border: var(--blue);
+  --button-color-border: var(--neon-blue);
   --content-color-border: var(--neon-pink);
 }
 
@@ -137,7 +141,7 @@ a:focus {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--blue);
+  background: var(--neon-blue);
   border-radius: 2px;
 }
 
