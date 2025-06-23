@@ -21,8 +21,6 @@ description: A summary of my technical skills and expertise.
             <li>Angular.ts</li>
             <li>Astro</li>
             <li>Spring</li>
-            <li>Express.js</li>
-            <li>Tailwind CSS</li>
         </ul>
     </div>
     <div>
@@ -30,7 +28,6 @@ description: A summary of my technical skills and expertise.
         <ul class="skill-list">
             <li>Git &amp; GitHub</li>
             <li>VS Code</li>
-            <li>Webpack</li>
             <li>Docker</li>
             <li>K8s (Basic)</li>
         </ul>
