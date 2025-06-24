@@ -86,7 +86,7 @@ description: A summary of my professional experience and work history.
 
 .experience-list li {
     margin-bottom: 0.25rem;
-    color: var(--neon-blue);
+    color: var(--content-text);
 }
 
 .experience-container .experience-item .experience-tools {

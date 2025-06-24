@@ -20,10 +20,6 @@
   --gray: #b0b0b0;
   --white: #ffffff;
 
-  /* Gradients */
-  --night-city-gradient: linear-gradient(to bottom, var(--black), var(--dark-purple));
-  --cyberpunk-gradient: linear-gradient(90deg, var(--dark-purple), var(--dark-blue));
-
   /* Semantic variables - Dark Theme (default) */
   --color-background: var(--black);
   --color-background-secondary: var(--dark-purple);
@@ -32,24 +28,46 @@
   --color-accent: var(--neon-pink);
   --color-link: var(--neon-blue);
   --color-link-hover: #80fffc;
+  --content-text: var(--neon-blue);
   --button-color-border: var(--neon-blue);
   --content-color-border: var(--neon-pink);
+  --gradient-background: linear-gradient(to bottom, var(--black), var(--dark-purple));
 }
 
-/* Light Theme (unfinished)*/
+/* Light Theme */
 html[data-theme="light"] {
-  /* Softer palette for light theme */
-  --neon-blue: #0099cc;
-  --neon-pink: #cc00cc;
-  --neon-purple: #5933b1;
-  --terminal-green: #00a86b;
-  --dark-blue: #9a9af8;
-  --dark-purple: #d191ee;
-
   /* Semantic overrides for light theme */
+  --blue: #004ac2;
+  --pink: #d1036d;
+  --purple: #8a22f1;
+  --green: #3cae63;
+  --yellow: #c59e02;
+  --neon-pink: #ff00ff;
+  --neon-green: #04aa2d;
+  --neon-yellow: #ffde21;
+  --neon-blue: #00fff9;
+  --neon-purple: #b300ff;
+  --dark-blue: #0d1b2a;
+  --dark-purple: #6803c7;
+  --gray: #3a3a3a;
+  --ligth-gray: #b0b0b0;
+
   --color-background: var(--white);
-  --color-text: var(--black);
-  --night-city-gradient: linear-gradient(to bottom, var(--white), var(--dark-purple));
+  --color-background-secondary: var(--purple);
+  --color-text: var(--gray);
+  --color-heading: var(--dark-purple);
+  --color-accent: var(--blue);
+  --color-link: var(--blue);
+  --color-link-hover: var(--dark-blue);
+  --content-text: var(--blue);
+  --button-color-border: var(--blue);
+  --content-color-border: var(--dark-purple);
+  --gradient-background: linear-gradient(to bottom, var(--white), var(--ligth-gray));
+
+  h1 {
+    color: var(--color-heading);
+    text-shadow: 0 0 3px var(--purple), 0 0 8px var(--purple);
+  }
 }
 
 /* =====================
@@ -57,7 +75,7 @@ html[data-theme="light"] {
    ===================== */
 
 html {
-  background: var(--dark-purple);
+  background: var(--color-background-secondary);
   color: var(--color-text);
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   line-height: 1.6;
@@ -67,7 +85,7 @@ html {
 }
 
 body {
-  background: var(--night-city-gradient);
+  background: var(--gradient-background);
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
