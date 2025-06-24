@@ -37,7 +37,7 @@ description: A list of social networks to contact me
 .connect-intro {
   font-size: 1.1rem;
   margin-bottom: 1rem;
-  color: var(--blue);
+  color: var(--content-text);
 }
 
 .social-links {
