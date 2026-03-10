@@ -10,17 +10,24 @@ description: A summary of my technical skills and expertise.
         <ul class="skill-list">
             <li>JavaScript (ES6+)</li>
             <li>HTML5</li>
-            <li>CSS3</li>
+            <li>CSS3 / SCSS</li>
             <li>Typescript</li>
             <li>Java</li>
+            <li>Golang</li>
+            <li>Python</li>
+            <li>SQL</li>
         </ul>
     </div>
     <div>
         <h4 class="skill-heading frameworks">Frameworks &amp; Libraries</h4>
         <ul class="skill-list">
-            <li>Angular.ts</li>
+            <li>Angular</li>
             <li>Astro</li>
-            <li>Spring</li>
+            <li>Spring Boot</li>
+            <li>Spring WebFlux</li>
+            <li>RxJs / Signals</li>
+            <li>Kafka</li>
+            <li>Hibernate / JPA</li>
         </ul>
     </div>
     <div>
@@ -29,7 +36,11 @@ description: A summary of my technical skills and expertise.
             <li>Git &amp; GitHub</li>
             <li>VS Code</li>
             <li>Docker</li>
-            <li>K8s (Basic)</li>
+            <li>Kubernetes (GKE)</li>
+            <li>Google Cloud</li>
+            <li>MongoDB</li>
+            <li>PostgreSQL / MySQL</li>
+            <li>Redis</li>
         </ul>
     </div>
     <div>
@@ -37,9 +48,11 @@ description: A summary of my technical skills and expertise.
         <ul class="skill-list">
             <li>Agile Methodologies</li>
             <li>Responsive Design</li>
-            <li>API Integration</li>
+            <li>API RESTful</li>
             <li>Problem Solving</li>
             <li>UI/UX Principles</li>
+            <li>Cloud Security / IAM</li>
+            <li>Reactive Forms</li>
         </ul>
     </div>
 </div>

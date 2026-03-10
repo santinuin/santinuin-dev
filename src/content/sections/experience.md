@@ -7,34 +7,36 @@ description: A summary of my professional experience and work history.
 
 <div class="experience-container">
     <div class="experience-item">
-        <h4 class="experience-title actual">Full Stack Developer - Fronted Focused</h4>
-        <p class="experience-period">Chattigo SPA | Feb 2024 - Present</p>
+        <h4 class="experience-title actual">Full Stack Developer — <a href="https://www.chattigo.com/" target="_blank" rel="noopener noreferrer">Chattigo</a></h4>
+        <p class="experience-period">Remote | February 2024 - Present</p>
         <ul class="experience-list">
-            <li>Member of the “Factory” team, in charge of developing and maintaining customized functionalities for enterprise clients.</li>
+            <li>Member of the "Factory" team, responsible for developing and maintaining custom features for enterprise clients.</li>
             <li>Implementation of reactive forms and dynamic components using Angular.</li>
-            <li>Integrations with external CRMs (such as HubSpot and Zoho) to facilitate messaging and automation processes.</li>
-            <li>Upgrading components to the latest versions of Angular and resolving bugs in prod.</li>
+            <li>Integrations with external CRMs (such as HubSpot and Zoho) to streamline messaging and automation workflows.</li>
+            <li>Upgrading components to the latest Angular versions and resolving production bugs.</li>
+            <li>Development of microservices in Go (Golang) and Spring WebFlux to process and route real-time mass messaging.</li>
+            <li>Integration with Kafka and MongoDB.</li>
         </ul>
-        <p class="experience-tools"><strong>Technologies:</strong> Angular, TypeScript, HTML, SCSS, Docker, Kubernetes, SQL Server, MongoDB, Spring Boot, Java, Golang.</p>
+        <p class="experience-tools"><strong>Technologies:</strong> Angular, TypeScript, HTML, SCSS, Docker, Kubernetes, SQL Server, MongoDB, Kafka, Spring Boot, Java, Golang.</p>
     </div>
     <div class="experience-item">
-        <h4 class="experience-title second">Full Stack Developer</h4>
-        <p class="experience-period">Wenance | Jun 2023 - Ago 2023</p>
+        <h4 class="experience-title second">Full Stack Developer — Wenance</h4>
+        <p class="experience-period">Remote | June 2023 - August 2023</p>
         <ul class="experience-list">
-            <li>Maintenance and improvement of the contract search and management section, allowing advanced filtering by multiple parameters.</li>
-            <li>Development of CRUD functionalities for user and role management.</li>
-            <li>Exposure of API endpoints for external consumption, outside the VPN protected environment.</li>
+            <li>Maintenance and improvement of the contract search and management section, enabling advanced filtering by multiple parameters.</li>
+            <li>Development of CRUD features for user and role management.</li>
+            <li>Exposure of API endpoints for external consumption, outside the VPN-protected environment.</li>
         </ul>
         <p class="experience-tools"><strong>Technologies:</strong> Angular, TypeScript, Spring Boot, Java, MongoDB.</p>
     </div>
     <div class="experience-item">
-        <h4 class="experience-title third">Continuous Improvement Manager</h4>
-        <p class="experience-period">De los valles SRL | Ago 2017 - Feb 2024</p>
+        <h4 class="experience-title third">Continuous Improvement Manager — Distribuidora de los Valles SRL</h4>
+        <p class="experience-period">Córdoba, Argentina | August 2017 - February 2024</p>
         <ul class="experience-list">
-            <li>Leadership of continuous improvement initiatives, internal training and cultural change within the organization.</li>
-            <li>Design and implementation of recruitment, training and change management processes.</li>
-            <li>Coordination of digital transformation projects: systems migration, adoption of e-commerce platforms and B2B/B2C models.</li>
-            <li>Promotion of the use of new technologies as tools for business efficiency and scalability.</li>
+            <li>Led continuous improvement initiatives, internal training, and cultural change within the organization.</li>
+            <li>Designed and implemented recruitment, onboarding, and change management processes.</li>
+            <li>Coordinated digital transformation projects: system migration, e-commerce platform adoption, and B2B/B2C models.</li>
+            <li>Championed the adoption of new technologies as tools for business efficiency and scalability.</li>
         </ul>
         <p class="experience-tools"><strong>Key areas:</strong> Work psychology, change management, digital transformation, project leadership, e-commerce, process improvement.</p>
     </div>
@@ -68,6 +70,15 @@ description: A summary of my professional experience and work history.
 
 .experience-title.third {
     color: var(--green);
+}
+
+.experience-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.experience-title a:hover {
+    text-decoration: underline;
 }
 
 .experience-container .experience-item .experience-period {
